@@ -4,7 +4,7 @@ Reddit Suspicious URL Detection: Stacked Ensemble Pipeline
 Implements the methodology described in Chapter 3 of the thesis:
   - 6 baseline (first-level) classifiers: AdaBoost, Gradient Boost, Random
     Forest, Linear SVM, Decision Tree, Naive Bayes
-  - A stacked ensemble (Super Learner) built via 5-fold out-of-fold
+  - A stacked ensemble built via 5-fold out-of-fold
     predictions, with 4 meta-learner variants:
       1. Logistic Regression meta-learner
       2. Majority Voting (uniform weights)
