@@ -64,4 +64,22 @@ cd final-project-2026
 
 
 
+USAGE
+-----
+    python reddit_phishing_pipeline.py --data path/to/enriched_dataset_final.csv --out results/
+
+If --data is omitted, or the file doesn't exist, a small synthetic dataset
+matching the expected schema is generated automatically so you can smoke-test
+the whole pipeline before your real Reddit dataset is ready.
+
+EXPECTED CSV SCHEMA (12 features from Table 3.1 + label column)
+-----------------------------------------------------------------
+username_length, username_has_digits, username_digit_count, account_age_days,
+post_content_signal, domain_age, is_https, link_length, link_char_count,
+link_dot_count, link_special_char_count, link_digit_count, label
+
+`label` must be 0 (legitimate) or 1 (malicious/phishing).
+
+
+
 
