@@ -1,5 +1,5 @@
 """
-Reddit Suspicious URL Detection: Stacked Ensemble (Super Learner) Pipeline
+Reddit Suspicious URL Detection: Stacked Ensemble Pipeline
 ============================================================================
 Implements the methodology described in Chapter 3 of the thesis:
   - 6 baseline (first-level) classifiers: AdaBoost, Gradient Boost, Random
