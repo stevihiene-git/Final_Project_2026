@@ -59,7 +59,7 @@ The project uses an enriched dataset comprising **19,870 instances** across **15
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/stevihiene-git/final-project-2026.git](https://github.com/stevihiene-git/final_project_2026.git)
+git clone [https://github.com/stevihiene-git/final_project_2026.git](https://github.com/stevihiene-git/final_project_2026.git)
 cd final-project-2026
 
 
