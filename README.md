@@ -50,36 +50,39 @@ The project uses an enriched dataset comprising **19,870 instances** across **15
 * **Baseline Voting Combinations (for comparison):** Uniform Majority Voting, Accuracy-Weighted Voting, and Exponential Accuracy-Weighted Voting.
 
 ---
+🚀 Reproducibility: Setup, Installation & Execution
 
-## 🚀 Setup & Installation
+Follow these steps to reproduce the experiments and results presented in Chapter 4.
 
-### Prerequisites
-* **Python:** Version 3.9 or higher
-* **Git**
+1. Prerequisites
+Python 3.9–3.12
+Git and pip
+Required raw datasets: new_all_posts.csv and reddit_post_features.csv
 
-### 1. Clone the Repository
-```bash
-git clone [https://github.com/stevihiene-git/final_project_2026.git](https://github.com/stevihiene-git/final_project_2026.git)
-cd final-project-2026
+3. Clone the Repository
+git clone https://github.com/stevihiene-git/Final_Project_2026.git
+cd Final_Project_2026
+Place the two required CSV files inside the uploads/ directory.
 
+4. Set Up the Environment
+Windows (PowerShell):
+python -m venv venv
+venv\Scripts\Activate.ps1
+Linux/macOS:
+python3 -m venv venv
+source venv/bin/activate
+Install dependencies:
+pip install -r requirements.txt
 
+4. Build the Corrected Dataset
+python build_dataset.py --uploads_dir uploads --out enriched_dataset_final.csv
+Expected output: 19,870 observations, comprising 17,831 legitimate and 2,039 suspicious posts.
+The script corrects URL feature extraction and CSV data-quality issues before generating the enriched dataset.
 
-USAGE
------
-    python reddit_phishing_pipeline.py --data path/to/enriched_dataset_final.csv --out results/
+5. Run the Machine Learning Pipeline
+python reddit_phishing_pipeline.py --data enriched_dataset_final.csv --out results
+The pipeline performs class balancing, trains and evaluates six baseline classifiers, implements four stacking ensemble strategies, and generates the performance comparisons.
+The balanced modelling dataset contains 10,195 observations (8,156 legitimate and 2,039 suspicious posts).
 
-If --data is omitted, or the file doesn't exist, a small synthetic dataset
-matching the expected schema is generated automatically so you can smoke-test
-the whole pipeline before your real Reddit dataset is ready.
-
-EXPECTED CSV SCHEMA (12 features from Table 3.1 + label column)
------------------------------------------------------------------
-username_length, username_has_digits, username_digit_count, account_age_days,
-post_content_signal, domain_age, is_https, link_length, link_char_count,
-link_dot_count, link_special_char_count, link_digit_count, label
-
-`label` must be 0 (legitimate) or 1 (malicious/phishing).
-
-
-
+6. Generated Results
 
