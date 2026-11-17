@@ -55,33 +55,30 @@ The project uses an enriched dataset comprising **19,870 instances** across **15
 Follow these steps to reproduce the experiments and results presented in Chapter 4.
 
 1. Prerequisites
-2. 
+
 Python 3.9–3.12
 
 Git and pip
 
-
 Required raw datasets: new_all_posts.csv and reddit_post_features.csv
 
-3. Clone the Repository
-   
-git clone https://github.com/stevihiene-git/Final_Project_2026.git
+2. Clone the Repository
 
+git clone https://github.com/stevihiene-git/Final_Project_2026.git
 cd Final_Project_2026
 
 Place the two required CSV files inside the uploads/ directory.
 
-5. Set Up the Environment
+3. Set Up the Environment
+
 Windows (PowerShell):
 
 python -m venv venv
-
 venv\Scripts\Activate.ps1
 
 Linux/macOS:
 
 python3 -m venv venv
-
 source venv/bin/activate
 
 Install dependencies:
@@ -89,20 +86,21 @@ Install dependencies:
 pip install -r requirements.txt
 
 4. Build the Corrected Dataset
-   
+
 python build_dataset.py --uploads_dir uploads --out enriched_dataset_final.csv
 
 Expected output: 19,870 observations, comprising 17,831 legitimate and 2,039 suspicious posts.
 
 The script corrects URL feature extraction and CSV data-quality issues before generating the enriched dataset.
 
-6. Run the Machine Learning Pipeline
-   
+5. Run the Machine Learning Pipeline
+
 python reddit_phishing_pipeline.py --data enriched_dataset_final.csv --out results
 
 The pipeline balances classes, trains and evaluates six baseline classifiers, implements four stacking ensemble strategies, and generates performance comparisons.
 
 The balanced modelling dataset contains 10,195 observations (8,156 legitimate and 2,039 suspicious posts).
 
-7. Generated Results
+6. Generated Results
 
+The results/ directory
