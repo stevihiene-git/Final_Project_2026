@@ -55,8 +55,9 @@ The project uses an enriched dataset comprising **19,870 instances** across **15
 Follow these steps to reproduce the experiments and results presented in Chapter 4.
 
 1. Prerequisites
-Python 3.9–3.12
-Git and pip
+Python 3.9–3.12,
+Git and pip,
+
 Required raw datasets: new_all_posts.csv and reddit_post_features.csv
 
 3. Clone the Repository
