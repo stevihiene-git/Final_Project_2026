@@ -52,55 +52,32 @@ The project uses an enriched dataset comprising **19,870 instances** across **15
 ---
 🚀 Reproducibility: Setup, Installation & Execution
 
-Follow these steps to reproduce the experiments and results presented in Chapter 4.
+# Reproduction Steps
 
-1. Prerequisites
+## 1. Prerequisites
+- Python 3.9–3.12 and `pip`
+- Required files in your project directory:
+  - `build_dataset.py`
+  - `reddit_phishing_pipeline.py`
+  - `uploads/new_all_posts.csv`
+  - `uploads/reddit_post_features.csv`
 
-Python 3.9–3.12
+## 2. Setup Environment
+```bash
+python3 -m venv venv
 
-Git and pip
-
-Required raw datasets: new_all_posts.csv and reddit_post_features.csv
-
-2. Clone the Repository
-
-git clone https://github.com/stevihiene-git/Final_Project_2026.git
-cd Final_Project_2026
-
-Place the two required CSV files inside the uploads/ directory.
-
-3. Set Up the Environment
-
-Windows (PowerShell):
-
-python -m venv venv
+# Activate virtual environment:
+# Mac/Linux:
+source venv/bin/activate
+# Windows (PowerShell):
 venv\Scripts\Activate.ps1
 
-Linux/macOS:
+# Install dependencies:
+pip install pandas numpy scikit-learn matplotlib
 
-python3 -m venv venv
-source venv/bin/activate
-
-Install dependencies:
-
-pip install -r requirements.txt
-
-4. Build the Corrected Dataset
-
+##3. Run the Pipeline
+# Step 1: Build the dataset
 python build_dataset.py --uploads_dir uploads --out enriched_dataset_final.csv
 
-Expected output: 19,870 observations, comprising 17,831 legitimate and 2,039 suspicious posts.
-
-The script corrects URL feature extraction and CSV data-quality issues before generating the enriched dataset.
-
-5. Run the Machine Learning Pipeline
-
+# Step 2: Run the modeling pipeline
 python reddit_phishing_pipeline.py --data enriched_dataset_final.csv --out results
-
-The pipeline balances classes, trains and evaluates six baseline classifiers, implements four stacking ensemble strategies, and generates performance comparisons.
-
-The balanced modelling dataset contains 10,195 observations (8,156 legitimate and 2,039 suspicious posts).
-
-6. Generated Results
-
-The results/ directory
